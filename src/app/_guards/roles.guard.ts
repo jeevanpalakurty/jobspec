@@ -6,15 +6,14 @@ import { RoleService } from '../_services/index';
 @Injectable()
 export class RolesGuard implements CanActivate {
      private currentUser: User;
-    constructor(private roleService:RoleService, private router: Router) { 
+    constructor(private roleService:RoleService, private router: Router) {
          this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-       if(this.currentUser && this.currentUser.role === "employer"){
+       if(this.currentUser && this.currentUser.role === 'employer') {
             return true;
         }
         return false;
-    
     }
 }
