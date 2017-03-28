@@ -1,7 +1,15 @@
 export interface Job {
-  startDate?: string;
-  account: {
-    email: string;
-    confirm: string;
-  };
+  startDate?: Date;
+  jobTitleId: string;
+  skillsId: string;
+  employerId: string;
+  trainingCourses: string;
+  jobDescription: string;
+  applicationDeadline: Date;
+  projectDuration: string;
+  projectValue: Number;
+  projectTypeId: string;
+  projectLocation?: string;
+  salary: Number;
+  experience: Number;
 };

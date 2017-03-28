@@ -14,5 +14,5 @@ export class RoleService {
 
   userRole() {
     return this._currentUserRole;
-  }  
+  }
 }
