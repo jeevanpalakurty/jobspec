@@ -1,7 +1,7 @@
 import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend, RequestOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
-export const fakeBackendProvider = {
+export  let fakeBackendProvider = {
     // use fake backend in place of Http service for backend-less development
     provide: Http,
     useFactory: (backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) => {
@@ -47,6 +47,7 @@ export const fakeBackendProvider = {
 
                 // get users
                 if (connection.request.url.endsWith('/api/users') && connection.request.method === RequestMethod.Get) {
+                    // tslint:disable-next-line:max-line-length
                     // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
                     if (connection.request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                         connection.mockRespond(new Response(new ResponseOptions({ status: 200, body: users })));

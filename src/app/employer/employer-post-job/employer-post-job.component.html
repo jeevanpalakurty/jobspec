@@ -1,0 +1,69 @@
+<form novalidate (ngSubmit)="onSubmit(job)" [formGroup]="job">
+      <label>
+        <span>Employer name</span>
+        <input type="text" placeholder="Employer's Name" formControlName="employerId">
+      </label>
+      <div class="error" *ngIf="job.get('employerId').touched && job.get('employerId').hasError('required')">
+        Employer Name is required
+      </div>
+      <div class="error" *ngIf="job.get('employerId').touched && job.get('employerId').hasError('minlength')">
+        Minimum of 2 characters
+      </div>
+      <div>
+        <label>Job Title</label>
+        <input type="text" placeholder="Job Title" formControlName="jobTitleId">
+      </div>
+      <div>
+        <label>Start date</label>
+        <input type="date" placeholder="Start date of the project" formControlName="startDate">
+      </div>
+      <div>
+        <label>Project Duration</label>
+        <input type="number" placeholder="Project Duration" formControlName="projectDuration">
+      </div>
+      <div class="error" *ngIf="job.get('projectTypeId').touched && job.get('projectTypeId').name === 'contract'">
+        Duration is required for contract
+      </div>
+      <div>
+        <label>Project Location</label>
+        <input type="text" placeholder="Project Location" formControlName="projectLocation">
+      </div>
+      <div>
+        <label>Salary/Rate</label>
+        <input type="text" placeholder="Salary" formControlName="salary">
+      </div>
+      <div>
+        <label>Experience</label>
+        <input type="text" placeholder="No of years of Expereience" formControlName="experience">
+      </div>
+      <div>
+        <label>Application Deadline</label>
+        <input type="date" placeholder="Deadline for Application" formControlName="applicationDeadline">
+      </div>
+       
+      <div>
+        <label> Skills Required</label>
+       <select class="mdl-form-control" formControlName="skillsId">
+        <option *ngFor="let skill of skills" [value]="skill.id">{{skill.name}}</option>
+      </select>
+      </div>
+       <div>
+        <label> Training courses</label>
+       <select class="mdl-form-control" formControlName="trainingCourses">
+        <option *ngFor="let course of trainingCourses" [value]="course.id">{{course.name}}</option>
+      </select>
+      </div>
+      <div>
+        <label> Project Type</label>
+       <select class="mdl-form-control" formControlName="projectTypeId">
+        <option *ngFor="let type of projectTypes" [value]="type.id">{{type.name}}</option>
+      </select>
+      </div>
+      <div>
+        <label>Job Description</label>
+        <textarea placeholder="Describe about the project" formControlName="jobDescription"></textarea>
+      </div>
+
+      <button type="submit" [disabled]="job.invalid">Post Job</button>
+
+    </form>

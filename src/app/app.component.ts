@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -8,3 +8,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent { }
+
+
