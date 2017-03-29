@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding  } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Job } from '../../_models/interfaces/job';
 import { EmployerService } from '../../_services/index';
+import { slideInDownAnimation } from '../../animations';
 
 @Component({
   selector: 'app-employer-post-job',
-  templateUrl: './employer-post-job.component.html'
+  templateUrl: './employer-post-job.component.html',
+    animations: [ slideInDownAnimation ]
 })
 export class EmployerPostJobComponent implements OnInit {
+   @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('style.display')   display = 'block';
+  @HostBinding('style.position')  position = 'absolute';
 
  private job: FormGroup;
  skills = [
@@ -51,7 +56,7 @@ export class EmployerPostJobComponent implements OnInit {
     });
   }
   // tslint:disable-next-line:no-trailing-whitespace
-  
+
   onSubmit({ value, valid }: { value: Job, valid: boolean }) {
       console.log(valid);
       this.employerService.postjob(value);

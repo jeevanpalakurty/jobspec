@@ -3,14 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { JobSearchComponent } from './job-search/job-search.component';
 
-const routes: Routes = [
-  { path: 'path', component: NameComponent },
+const sharedRoutes: Routes = [
+  { path: 'path', component: JobSearchComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild|Root(routes)],
+  imports: [RouterModule.forChild(sharedRoutes)],
   exports: [RouterModule],
 })
 export class NameRoutingModule { }
 
-export const routedComponents = [NameComponent];
+export const SharedRouting = [JobSearchComponent];

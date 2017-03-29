@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
     "version": "1.0.0-beta.28.3",
     "name": "jobspecialist-ui"
@@ -21,6 +22,7 @@
         "styles.css"
       ],
       "scripts": [],
+      "environmentSource": "environments/environment.ts",
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",

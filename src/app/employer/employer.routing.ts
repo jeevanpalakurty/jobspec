@@ -10,4 +10,4 @@ const employerRoutes: Routes = [
     { path: '**', redirectTo: '' }
 ];
 
-export const EmployerRouting = RouterModule.forRoot(employerRoutes);
+export const EmployerRouting = RouterModule.forChild(employerRoutes);
