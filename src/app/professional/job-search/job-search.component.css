@@ -1,0 +1,10 @@
+.longinput {
+    width: 453px;
+    margin-bottom: 11px;
+}
+
+select, input {
+    padding: 2px 2px 2px 5px;
+    background: #fef5cd;
+    border: 1px solid #000;
+}
