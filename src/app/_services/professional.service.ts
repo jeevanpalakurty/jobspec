@@ -8,9 +8,9 @@ export class ProfessionalService {
 
     constructor(private http: Http) { }
 
-    searchJob(searchJobs: SearchJobRequest) {
+    searchJobs(searchJobs: SearchJobRequest) {
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        const options = new RequestOptions({ headers: headers });
-        this.http.post('http://localhost:2730/api/SearchJobRequest', JSON.stringify(searchJobs), options);
+        const options = new RequestOptions({ headers: headers, params: searchJobs });
+        this.http.get('http://localhost:2730/api/jobs/getJobsByCriteria/', options);
     }
 }

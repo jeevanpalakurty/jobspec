@@ -12,10 +12,10 @@ export class PersonService {
             .toPromise()
             .then(response => this.extractArray(response))
             .catch(this.handleErrorPromise);
-    }    
+    }
 
-    protected extractArray(res: Response, showprogress: boolean = true) {
-        let data = res.json();
+    protected extractArray(res: Response, showprogress = true) {
+        const data = res.json();
         return data || [];
     }
 
@@ -25,7 +25,7 @@ export class PersonService {
         } catch (e) {
         }
 
-        let errMsg = error.errorMessage
+        const errMsg = error.errorMessage
             ? error.errorMessage
             : error.message
                 ? error.message

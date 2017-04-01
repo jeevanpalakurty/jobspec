@@ -3,8 +3,26 @@
     margin-bottom: 11px;
 }
 
-select, input {
+select,
+input {
     padding: 2px 2px 2px 5px;
     background: #fef5cd;
     border: 1px solid #000;
+}
+
+
+/*media screen*/
+
+.searchbutton {
+    background: #2891b9 url('http://az274887.vo.msecnd.net/css/cssimg/css.gif') repeat-x 0 -14px;
+    padding: 3px 23px;
+    border-top: 1px solid #31bcef;
+    border-right: 1px solid #007ba9;
+    border-bottom: 1px solid #007ba9;
+    border-left: 1px solid #31bcef;
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
 }

@@ -1,13 +1,29 @@
-<div>
-    <label for="skills">
+<form novalidate (ngSubmit)="onSubmit(searchJobRequest)" [formGroup]="searchJobRequest">
+    <div>
+        <label for="skills">
             Keywords/skills
         </label>
-    <input name="skills" class="longinput" id="txtKeyWords" type="text">
-</div>
-
-<div>
-    <label for="location">
+        <input name="skills" class="longinput" id="txtKeyWords" type="text" formControlName="skills">
+    </div>
+    <div class="error" *ngIf="searchJobRequest.get('skills').touched &&searchJobRequest.get('skills').hasError('required')">
+        Skills are required
+    </div>
+    <div>
+        <label for="location">
             Location(s)
         </label>
-    <input name="location" class="longinput" id="txtLocations" type="text">
-</div>
+        <input name="location" class="longinput" id="txtLocations" type="text" formControlName="projectLocation">
+    </div>
+    <div class="error" *ngIf="searchJobRequest.get('projectLocation').touched &&searchJobRequest.get('projectLocation').hasError('required')">
+        Location required
+    </div>
+
+    <div>
+        <label for="category">
+            category
+        </label>
+        <input name="category" class="longinput" id="txtCategory" type="text" formControlName="category">
+    </div>
+    <div>
+        <button type="submit" class="searchbutton" [disabled]="searchJobRequest.invalid">Search</button>
+    </div>

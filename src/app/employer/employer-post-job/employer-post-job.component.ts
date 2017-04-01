@@ -7,10 +7,10 @@ import { slideInDownAnimation } from '../../animations';
 @Component({
   selector: 'app-employer-post-job',
   templateUrl: './employer-post-job.component.html',
-    animations: [ slideInDownAnimation ]
+  animations: [ slideInDownAnimation ]
 })
 export class EmployerPostJobComponent implements OnInit {
-   @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display')   display = 'block';
   @HostBinding('style.position')  position = 'absolute';
 
