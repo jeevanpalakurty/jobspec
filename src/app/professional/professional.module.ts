@@ -5,9 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfessionalService } from '../_services/index';
-import { ProfessionalRouting } from './professional.routing';
+import { ProfessionalRoutingModule } from './professional.routing';
 import { SharedModule } from '../shared/shared.module';
 import { JobSearchComponent } from './job-search/job-search.component';
+import { ProfessionalDashboardComponent  } from './professional-dashboard/professional-dashboard.component';
 
 @NgModule({
     imports: [
@@ -15,10 +16,11 @@ import { JobSearchComponent } from './job-search/job-search.component';
         FormsModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
-        SharedModule,
-        ProfessionalRouting],
+        ProfessionalRoutingModule,
+        SharedModule
+        ],
     exports: [],
-    declarations: [JobSearchComponent],
+    declarations: [ProfessionalDashboardComponent, JobSearchComponent],
     providers: [ProfessionalService],
 })
 export class ProfessionalModule { }

@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmployerDashboardComponent } from './employer-dashboard/employer-dashboard.component';
 import { EmployerPostJobComponent } from './employer-post-job/employer-post-job.component';
 import { EmployerService } from '../_services/index';
-import { EmployerRouting } from './employer.routing';
+import { EmployerRoutingModule } from './employer.routing';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -16,8 +16,8 @@ import { SharedModule } from '../shared/shared.module';
         FormsModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
-        SharedModule,
-        EmployerRouting
+        EmployerRoutingModule,
+        SharedModule
     ],
     declarations: [
         EmployerDashboardComponent,

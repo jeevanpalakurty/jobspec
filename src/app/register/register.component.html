@@ -24,7 +24,7 @@
         <div class="form-group">
             <button [disabled]="loading" class="btn btn-primary">Register</button>
             <img *ngIf="loading" />
-            <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+            <a routerLink="/login" class="btn btn-link">Cancel</a>
         </div>
     </form>
 </div>

@@ -11,6 +11,6 @@ export class ProfessionalService {
     searchJob(searchJobs: SearchJobRequest) {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
-        this.http.post('http://localhost:59476/api/SearchJobRequest', JSON.stringify(searchJobs), options);
+        this.http.post('http://localhost:2730/api/SearchJobRequest', JSON.stringify(searchJobs), options);
     }
 }

@@ -10,7 +10,7 @@ import { MdlModule } from 'angular2-mdl';
 import { fakeBackendProvider } from './_helpers/index';
 
 import { AppComponent } from './app.component';
-import { routing } from './app.routing';
+import { AppRoutingModule } from './app.routing';
 
 import { AlertComponent } from './_directives/index';
 import { AuthGuard, RolesGuard } from './_guards/index';
@@ -18,6 +18,7 @@ import { AlertService, AuthenticationService, UserService, RoleService } from '.
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
+import { ProfessionalModule } from './professional/professional.module';
 import { EmployerModule } from './employer/employer.module';
 
 @NgModule({
@@ -25,9 +26,10 @@ import { EmployerModule } from './employer/employer.module';
         BrowserModule,
         FormsModule,
         HttpModule,
-        routing,
         MdlModule,
-        EmployerModule
+        ProfessionalModule,
+        EmployerModule,
+        AppRoutingModule,
     ],
     declarations: [
         AppComponent,

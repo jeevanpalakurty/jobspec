@@ -1,7 +1,7 @@
 <form novalidate (ngSubmit)="onSubmit(job)" [formGroup]="job">
       <label>
         <span>Employer name</span>
-        <input type="text" placeholder="Employer's Name" formControlName="employerId">
+        <input type="text" class="longinput" placeholder="Employer's Name" formControlName="employerId">
       </label>
       <div class="error" *ngIf="job.get('employerId').touched && job.get('employerId').hasError('required')">
         Employer Name is required
@@ -11,34 +11,34 @@
       </div>
       <div>
         <label>Job Title</label>
-        <input type="text" placeholder="Job Title" formControlName="jobTitleId">
+        <input type="text" class="longinput" placeholder="Job Title" formControlName="jobTitleId">
       </div>
       <div>
         <label>Start date</label>
-        <input type="date" placeholder="Start date of the project" formControlName="startDate">
+        <input type="date" class="longinput" placeholder="Start date of the project" formControlName="startDate">
       </div>
       <div>
         <label>Project Duration</label>
-        <input type="number" placeholder="Project Duration" formControlName="projectDuration">
+        <input type="number" class="longinput" placeholder="Project Duration" formControlName="projectDuration">
       </div>
       <div class="error" *ngIf="job.get('projectTypeId').touched && job.get('projectTypeId').name === 'contract'">
         Duration is required for contract
       </div>
       <div>
         <label>Project Location</label>
-        <input type="text" placeholder="Project Location" formControlName="projectLocation">
+        <input type="text" class="longinput" placeholder="Project Location" formControlName="projectLocation">
       </div>
       <div>
         <label>Salary/Rate</label>
-        <input type="text" placeholder="Salary" formControlName="salary">
+        <input type="text" class="longinput" placeholder="Salary" formControlName="salary">
       </div>
       <div>
         <label>Experience</label>
-        <input type="text" placeholder="No of years of Expereience" formControlName="experience">
+        <input type="text" class="longinput" placeholder="No of years of Expereience" formControlName="experience">
       </div>
       <div>
         <label>Application Deadline</label>
-        <input type="date" placeholder="Deadline for Application" formControlName="applicationDeadline">
+        <input type="date" class="longinput" placeholder="Deadline for Application" formControlName="applicationDeadline">
       </div>
        
       <div>
@@ -61,7 +61,7 @@
       </div>
       <div>
         <label>Job Description</label>
-        <textarea placeholder="Describe about the project" formControlName="jobDescription"></textarea>
+        <textarea placeholder="Describe about the project" class="longinput" formControlName="jobDescription"></textarea>
       </div>
 
       <button type="submit" [disabled]="job.invalid">Post Job</button>

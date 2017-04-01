@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { JobSearchComponent } from './job-search/job-search.component';
 
 @NgModule({
     imports: [],
     exports: [],
-    declarations: [JobSearchComponent],
+    declarations: [],
     providers: [],
 })
 export class SharedModule { }

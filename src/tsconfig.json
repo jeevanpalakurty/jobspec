@@ -4,15 +4,17 @@
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
+    
+    "lib": ["es2015", "dom"],
     "mapRoot": "./",
-    "module": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "../dist/out-tsc",
     "sourceMap": true,
     "target": "es5",
     "removeComments": false,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
     "typeRoots": [
       "../node_modules/@types"
     ]
