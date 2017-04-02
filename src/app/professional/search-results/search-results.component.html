@@ -1,0 +1,7 @@
+<ul class="items">
+    <li *ngFor="let searchResult of searchResults">
+        <a [routerLink]="[searchResult.PostAJobId]" [class.selected]="">
+            <span class="badge">{{ searchResult.DescriptionOfJob }}</span> {{ searchResult.ProjectLocation }}
+        </a>
+    </li>
+</ul>

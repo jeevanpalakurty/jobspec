@@ -9,6 +9,11 @@ import { slideInDownAnimation } from '../../animations';
   templateUrl: './employer-post-job.component.html',
   animations: [ slideInDownAnimation ]
 })
+
+/**
+ * This is a component for employer posting a job through the portal
+ * this component uses form builder's reactive stargtegy. 
+ */
 export class EmployerPostJobComponent implements OnInit {
   @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display')   display = 'block';

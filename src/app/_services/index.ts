@@ -4,3 +4,4 @@ export * from './user.service';
 export * from './role.service';
 export * from './employer.service';
 export * from './professional.service';
+export * from './search-results.service';
