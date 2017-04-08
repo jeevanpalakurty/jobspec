@@ -20,6 +20,7 @@ export class SearchResultsComponent implements OnInit {
             
             dialogOutletService.setDefaultViewContainerRef(viewContainerRef);
             searchResultsService.searchResultAnnounced$.subscribe(
+
             jobs => {
                 this.searchResults = jobs;
             });

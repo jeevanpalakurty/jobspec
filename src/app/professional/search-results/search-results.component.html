@@ -1,30 +1,9 @@
-<article class="containerForm">
-    <h4 *ngIf="searchResults.length > 0"> Search Results </h4>
-    <ul class="items">
-        <li *ngFor="let searchResult of searchResults">
-            <section>
-                <div>
-                    <p class="JobDetailPanelHeading"><b> JavaScript Developer - (OO Vanilla)</b></p>
-                    <span class="JobDetailPanel"><b> {{searchResult.ProjectLocation + "- " +searchResult.DailyRate}}</b></span>
-                    <span class="JobDetailPanel"> Contract  </span>
-                </div>
-            </section>
-
-            <section [class.selected]="">
-                <p class="JobDetailPanel">{{ searchResult.DescriptionOfJob }}</p>
-            </section>
-
-            <button mdl-button mdl-button-type="raised" mdl-colored="accent" mdl-ripple class="btn btn-success" (click)="editDocument()">Apply</button>
-
-        </li>
-    </ul>
-</article>
-<!--<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
+<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
     <mdl-layout-header>
         <mdl-layout-header-row>
             <mdl-layout-title>Title</mdl-layout-title>
             <mdl-layout-spacer></mdl-layout-spacer>
-           
+            <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link">Link</a>
             </nav>
@@ -37,12 +16,24 @@
         </nav>
     </mdl-layout-drawer>
     <mdl-layout-content class="demo-content">
+        <article class="containerForm">
+            <h4 *ngIf="searchResults.length > 0"> Search Results </h4>
+            <ul class="items">
+                <li *ngFor="let searchResult of searchResults">
+                    <section>
+                        <div>
+                            <p class="JobDetailPanelHeading"><b> JavaScript Developer - (OO Vanilla)</b></p>
+                            <span class="JobDetailPanel"><b> {{searchResult.ProjectLocation + "- " +searchResult.DailyRate}}</b></span>
+                            <span class="JobDetailPanel"> Contract  </span>
+                        </div>
+                    </section>
 
-        <p>
-            <button mdl-button mdl-button-type="raised" mdl-colored="accent" mdl-ripple (click)="editDocument()">
-            OPEN CUSTOM DIALOG
-          </button>
-        </p>
+                    <section [class.selected]="">
+                        <p class="JobDetailPanel">{{ searchResult.DescriptionOfJob }}</p>
+                    </section>
+                    <button mdl-button mdl-button-type="raised" mdl-colored="accent" mdl-ripple class="btn btn-success" (click)="editDocument()">Apply</button>
+                </li>
+            </ul>
+        </article>
 
-    </mdl-layout-content>
-</mdl-layout>-->
+</mdl-layout>
