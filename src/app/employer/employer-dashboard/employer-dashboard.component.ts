@@ -8,10 +8,8 @@ import { EmployerService } from '../../_services/index';
 })
 export class EmployerDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private employerService: EmployerService) { }
 
-  loadRefData()  {
-  }
   ngOnInit() {
   }
 

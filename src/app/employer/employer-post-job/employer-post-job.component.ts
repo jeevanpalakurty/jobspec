@@ -20,13 +20,7 @@ export class EmployerPostJobComponent implements OnInit {
   @HostBinding('style.position')  position = 'absolute';
 
  private job: FormGroup;
- skills = [
-       {id: 1, name: "Java"},
-       {id: 2, name: "Javascript"},
-       {id: 3, name: ".net"},
-       {id: 4, name: "hadoop"},
-       {id: 5, name: "css"}
-     ];
+ skills: any = [];
  trainingCourses = [
        {id: 1, name: "Java"},
        {id: 2, name: "Javascript"},
@@ -34,16 +28,14 @@ export class EmployerPostJobComponent implements OnInit {
        {id: 4, name: "hadoop"},
        {id: 5, name: "css"}
      ];
-  projectTypes = [
-       {id: 1, name: "fixed term"},
-       {id: 2, name: "perm"},
-       {id: 3, name: "contract"}
-     ];
+  projectTypes: any = [];
+  jobTitles: any = [];
 
   constructor(private fb: FormBuilder, private employerService: EmployerService) {
   }
 
   ngOnInit() {
+    this.loadRefData();
     this.job = this.fb.group({
       employerId: ['', [Validators.required, Validators.minLength(1)]],
       startDate: ['', [Validators.required]],
@@ -62,6 +54,15 @@ export class EmployerPostJobComponent implements OnInit {
   }
   // tslint:disable-next-line:no-trailing-whitespace
 
+   loadRefData()  {
+    this.employerService.getReferenceData().then((refData: any) => {
+      this.skills = refData.skills;
+      this.projectTypes = refData.projectTypes;
+      this.jobTitles = refData.jobTitle;
+    }, (reason: any) => {
+        console.log('refdata error');
+    });
+  }
   onSubmit({ value, valid }: { value: Job, valid: boolean }) {
       console.log(valid);
       this.employerService.postjob(value);
