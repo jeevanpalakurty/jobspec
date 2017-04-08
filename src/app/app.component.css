@@ -1,3 +1,9 @@
 .linkColor {
     color: rgb(255, 0, 255)
 }
+
+.mdl-dialog {
+    width: 650px !important;
+    height: 900px !important;
+    overflow-y: auto !important;
+}

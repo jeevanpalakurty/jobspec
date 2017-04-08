@@ -1,17 +1,30 @@
-<ul class="items">
-    <li *ngFor="let searchResult of searchResults">
-        <a [routerLink]="[searchResult.PostAJobId]" [class.selected]="">
-            <span class="badge">{{ searchResult.DescriptionOfJob }}</span> {{ searchResult.ProjectLocation }}
-        </a>
+<article class="containerForm">
+    <h4 *ngIf="searchResults.length > 0"> Search Results </h4>
+    <ul class="items">
+        <li *ngFor="let searchResult of searchResults">
+            <section>
+                <div>
+                    <p class="JobDetailPanelHeading"><b> JavaScript Developer - (OO Vanilla)</b></p>
+                    <span class="JobDetailPanel"><b> {{searchResult.ProjectLocation + "- " +searchResult.DailyRate}}</b></span>
+                    <span class="JobDetailPanel"> Contract  </span>
+                </div>
+            </section>
 
-    </li>
-</ul>
-<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
+            <section [class.selected]="">
+                <p class="JobDetailPanel">{{ searchResult.DescriptionOfJob }}</p>
+            </section>
+
+            <button mdl-button mdl-button-type="raised" mdl-colored="accent" mdl-ripple class="btn btn-success" (click)="editDocument()">Apply</button>
+
+        </li>
+    </ul>
+</article>
+<!--<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
     <mdl-layout-header>
         <mdl-layout-header-row>
             <mdl-layout-title>Title</mdl-layout-title>
             <mdl-layout-spacer></mdl-layout-spacer>
-            <!-- Navigation. We hide it in small screens. -->
+           
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link">Link</a>
             </nav>
@@ -32,26 +45,4 @@
         </p>
 
     </mdl-layout-content>
-</mdl-layout>
-
-<article class="containerForm">
-    <h4 *ngIf="searchResults.length > 0"> Search Results </h4>
-    <ul class="items">
-        <li *ngFor="let searchResult of searchResults">
-            <section>
-                <div>
-                    <p class="JobDetailPanelHeading"><b> JavaScript Developer - (OO Vanilla)</b></p>
-                    <span class="JobDetailPanel"><b> {{searchResult.ProjectLocation + "- " +searchResult.DailyRate}}</b></span>
-                    <span class="JobDetailPanel"> Contract  </span>
-                </div>
-            </section>
-
-            <section [class.selected]="">
-                <p class="JobDetailPanel">{{ searchResult.DescriptionOfJob }}</p>
-            </section>
-
-            <button class="btn btn-success">Apply</button>
-
-        </li>
-    </ul>
-</article>
+</mdl-layout>-->

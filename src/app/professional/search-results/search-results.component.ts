@@ -3,7 +3,7 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Job } from 'app/_models/interfaces/job';
 import { SearchResultsService } from '../../_services/index';
-import {MdlDialogService, MdlDialogReference} from 'angular2-mdl';
+import {MdlDialogService, MdlDialogReference, MdlDialogOutletService } from '@angular-mdl/core';
 
 @Component({
     moduleId: module.id,
@@ -15,11 +15,14 @@ import {MdlDialogService, MdlDialogReference} from 'angular2-mdl';
 export class SearchResultsComponent implements OnInit {
     searchResults: any = [];
     constructor(private route: ActivatedRoute, private searchResultsService: SearchResultsService, private dialogService: MdlDialogService,
-                private viewContainerRef: ViewContainerRef) {
-        searchResultsService.searchResultAnnounced$.subscribe(
+            private viewContainerRef: ViewContainerRef, private dialogOutletService: MdlDialogOutletService) {
+            // tslint:disable-next-line:no-trailing-whitespace
+            
+            dialogOutletService.setDefaultViewContainerRef(viewContainerRef);
+            searchResultsService.searchResultAnnounced$.subscribe(
             jobs => {
-            this.searchResults = jobs;
-        });
+                this.searchResults = jobs;
+            });
   }
 
     ngOnInit() {
@@ -27,11 +30,16 @@ export class SearchResultsComponent implements OnInit {
 
     public editDocument() {
 
-        let pDialog = this.dialogService.showCustomDialog({
+        const applyDialog = this.dialogService.showCustomDialog({
             component: ApplyJobComponent,
-            isModal: true
+            isModal: true,
+            styles: {'width': '650px', 'background': 'floralwhite'},
+            clickOutsideToClose: true,
+            enterTransitionDuration: 400,
+            leaveTransitionDuration: 400
+
         });
-        pDialog.subscribe( (dialogReference: MdlDialogReference) => {
+        applyDialog.subscribe( (dialogReference: MdlDialogReference) => {
             console.log('dialog visible', dialogReference);
         });
     }

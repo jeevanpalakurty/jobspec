@@ -1,5 +1,5 @@
 import { ApplyJobService } from './../../_services/apply-job.service';
-import { MdlDialogReference } from 'angular2-mdl/components';
+import { MdlDialogReference } from '@angular-mdl/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
 
@@ -16,8 +16,7 @@ export class ApplyJobComponent implements OnInit {
     constructor(
       private dialog: MdlDialogReference,
       private fb: FormBuilder,
-      private ApplyJobService: ApplyJobService,
-      @Inject( 'TEST') testValue: string) {
+      private ApplyJobService: ApplyJobService) {
     }
 
     public ngOnInit() {

@@ -1,6 +1,6 @@
 import { ApplyJobComponent } from './apply-job/apply-job.component';
 import { CommonModule } from '@angular/common';
-import { MdlModule } from 'angular2-mdl';
+import { MdlModule } from '@angular-mdl/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
