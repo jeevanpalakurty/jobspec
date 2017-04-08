@@ -7,6 +7,7 @@ import { SearchResultsService } from '../../_services/index';
     moduleId: module.id,
     selector: 'app-search-results',
     templateUrl: 'search-results.component.html',
+    styleUrls: ['./search-results.component.css']
 })
 
 export class SearchResultsComponent implements OnInit {

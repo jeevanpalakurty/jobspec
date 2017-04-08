@@ -1,7 +1,21 @@
-<ul class="items">
-    <li *ngFor="let searchResult of searchResults">
-        <a [routerLink]="[searchResult.PostAJobId]" [class.selected]="">
-            <span class="badge">{{ searchResult.DescriptionOfJob }}</span> {{ searchResult.ProjectLocation }}
-        </a>
-    </li>
-</ul>
+<article class="containerForm">
+    <h4 *ngIf="searchResults.length > 0"> Search Results </h4>
+    <ul class="items">
+        <li *ngFor="let searchResult of searchResults">
+            <section>
+                <div>
+                    <p class="JobDetailPanelHeading"><b> JavaScript Developer - (OO Vanilla)</b></p>
+                    <span class="JobDetailPanel"><b> {{searchResult.ProjectLocation + "- " +searchResult.DailyRate}}</b></span>
+                    <span class="JobDetailPanel"> Contract  </span>
+                </div>
+            </section>
+
+            <section [class.selected]="">
+                <p class="JobDetailPanel">{{ searchResult.DescriptionOfJob }}</p>
+            </section>
+
+            <button class="btn btn-success">Apply</button>
+
+        </li>
+    </ul>
+</article>

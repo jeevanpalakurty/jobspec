@@ -1,0 +1,23 @@
+.containerForm {
+    overflow-y: auto;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.JobDetailPanel {
+    font-size: 12px;
+}
+
+.JobDetailPanelHeading {
+    font-size: 14px;
+}
+
+ul li {
+    margin: 5px;
+    border-bottom: 3px solid brown;
+}
+
+ul button {
+    margin-bottom: 10px;
+}
