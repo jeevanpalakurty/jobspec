@@ -1,306 +1,89 @@
-<form [formGroup]="form" class="applyJob">
+<form [formGroup]="applyJobForm" novalidate (ngSubmit)="onApply(applyJobForm)" class="form-horizontal">
+    <h4 class="mdl-dialog__title">Apply Job</h4>
 
-    <h3 class="mdl-dialog__title">Apply Job</h3>
+    <div class="mdl-dialog__content">
+        <label id="q" class="questionText">Email Address*</label>
+        <div class="questionInput">
+            <mdl-textfield name="email" type="email" formControlName="email" id="email" class="longQuestionTB"></mdl-textfield>
+        </div>
+        <div class="error" *ngIf=" applyJobForm.get('email') && applyJobForm.get('email').hasError('required')">
+            Email address is required
+        </div>
+        <div id="cv" class="cvPanel">
+            <span id="qcv" class="cvQuestion primary">Attach a CV *</span>;
 
-    <div id="ans" class="questionblock2">
-        <div class="mdl-dialog__content">
-            <span id="q" class="questionText">Email Address <span class="qmand">*</span></span>
-            <div class="questionInput">
-                <mdl-textfield name="rptAppMand$ctl00$Ques$Q0006_ans" type="text" formControlName="username" id="Q0006_ans" class="longQuestionTB"></mdl-textfield>
-
-            </div>
-            <div class="emailacknowledge">
-                <ion-checkbox type="checkbox" name="rptAppMand$ctl00$Ques$ctl04" checked="checked">
-                </ion-checkbox>
-                <label for="">&nbsp;Send confirmation of my application to this Email Address</label>
-            </div>
-
-            <br/>
-            <mdl-textfield type="password" label="Password" formControlName="password" floating-label></mdl-textfield>
-            <div class="clear">&nbsp;</div>
-            <div id="rcgLgn" class="recognisedLogin hidden rcgactive">
-                Already a candidate?
-                <div class="clear">&nbsp;</div>
-                <label id="lgnPwd" class="left" style="margin-right:4px;">Password:</label><input name="rptAppMand$ctl00$Ques$ctl00" type="password" class="left pwd"><input type="submit" name="rptAppMand$ctl00$Ques$ctl01" value="Login" class="buttonjs"><br>
-                <span id="pwdText" class="pwdText">Passwords are case-sensitive</span><br><a href="javascript:nologin();" id="nologin" class="fauxlink2" style="font-size:11px; ">I'll login later</a><br><a href="https://www.jobserve.com/gb/en/Candidate/CandidateForgotPassword.aspx"
-                    id="fgtPwd" class="fauxlink2" style="font-size:11px; " target="PasswordRecovery">Forgotten password?</a>
-
+            <div class="cvInput">
+                <div id="filUpload" class="filupload left">
+                    <input type="file" accept=".pdf,.doc,.docx" name="filCV" id="filCV" (change)="fileChangeEvent($event)" placeholder="Upload file..." formControlName="cv" class="fileupload">
+                </div>
             </div>
 
         </div>
-    </div>
 
-    <div id="cv" class="cvPanel">
-        <span id="qcv" class="cvQuestion primary">Attach a CV *</span>&nbsp;
-        <div id="currCV" class="attachedCV">
-        </div>
-        <div class="cvInput">
-
-            <div id="filUpload" class="filupload left">
-                <input type="file" name="filCV" id="filCV" class="w190px" onchange="cvfilechange('ddlCV', 'filCV')">
-                <input type="hidden" name="hdnCVID" id="hdnCVID">
-                <input type="hidden" name="hdnCV" id="hdnCV">
-                <input type="hidden" name="hdnCVName" id="hdnCVName">
-            </div>
-            <div id="canCV" class="hidden" style="margin-top: -2px;">
-                <span id="spnOr" class="orCV left">OR</span>
-                <select name="ddlCV" id="ddlCV" class="w350px left" onchange="cvfilechange2('ddlCV', 'filCV')">
-
-	</select>
-            </div>
-            <a href="#" id="aSpoof" style="height: 0px; width: 0px;"></a>
-
-        </div>
-        <div class="clearfat">
-            &nbsp;
-        </div>
-    </div>
-
-    <div id="app2" class="AppOptContainer left ccUni">
-        <div class="clearfat">
-            &nbsp;
-        </div>
-        <span class="sectionhead">
-												Additional Information:</span>
-        <div class="clearfat">
-            &nbsp;
-        </div>
-
-        <div id="ans" class="questionblock">
-
-            <span id="q" class="questionText">First Name <span class="qmand"></span></span>
-            <div class="questionInput">
-                <input name="rptApp$ctl00$Ques$Q0001_ans" type="text" value="Jeevan" id="Q0001_ans" class="longQuestionTB">
-
-            </div>
-            <div class="emailacknowledge">
-
-            </div>
-            <div class="clear">&nbsp;</div>
-            <div id="rcgLgn" class="recognisedLogin hidden">
-                Already a candidate?
-                <div class="clear">&nbsp;</div>
-                <label id="lgnPwd" class="left" style="margin-right:4px;"></label>
-
-            </div>
-
-
-        </div>
-
-
-        <div id="ans" class="questionblock">
-
-            <span id="q" class="questionText">Last Name <span class="qmand"></span></span>
-            <div class="questionInput">
-                <input name="rptApp$ctl01$Ques$Q0002_ans" type="text" value="Palakurty" id="Q0002_ans" class="longQuestionTB">
-
-            </div>
-            <div class="emailacknowledge">
-
-            </div>
-            <div class="clear">&nbsp;</div>
-            <div id="rcgLgn" class="recognisedLogin hidden">
-                Already a candidate?
-                <div class="clear">&nbsp;</div>
-                <label id="lgnPwd" class="left" style="margin-right:4px;"></label>
-
-            </div>
-
-
-        </div>
-
-
-        <div id="ans" class="questionblock2">
-
-            <span id="q" class="questionText">Address <span class="qmand"></span></span>
-            <div class="questionInput">
-                <textarea name="rptApp$ctl02$Ques$Q0003_ans" rows="3" cols="20" id="Q0003_ans" class="longQuestionTB"></textarea>
-
-            </div>
-            <div class="emailacknowledge">
-
-            </div>
-            <div class="clear">&nbsp;</div>
-            <div id="rcgLgn" class="recognisedLogin hidden">
-                Already a candidate?
-                <div class="clear">&nbsp;</div>
-                <label id="lgnPwd" class="left" style="margin-right:4px;"></label>
-
-            </div>
-
-
-        </div>
-
-
-        <div id="ans" class="questionblock">
-
-            <span id="q" class="questionText">Country <span class="qmand"></span></span>
-            <div class="questionInput">
-                <input name="rptApp$ctl03$Ques$Q0004_ans" type="text" id="Q0004_ans" class="shortQuestionTB">
-
-            </div>
-            <div class="emailacknowledge">
-
-            </div>
-            <div class="clear">&nbsp;</div>
-            <div id="rcgLgn" class="recognisedLogin hidden">
-                Already a candidate?
-                <div class="clear">&nbsp;</div>
-                <label id="lgnPwd" class="left" style="margin-right:4px;"></label>
-
-            </div>
-
-
-        </div>
-
-
-        <div id="ans" class="questionblock">
-
-            <span id="q" class="questionText">Home Telephone <span class="qmand"></span></span>
-            <div class="questionInput">
-                <input name="rptApp$ctl04$Ques$Q0007_ans" type="text" id="Q0007_ans" class="longQuestionTB">
-
-            </div>
-            <div class="emailacknowledge">
-
-            </div>
-            <div class="clear">&nbsp;</div>
-            <div id="rcgLgn" class="recognisedLogin hidden">
-                Already a candidate?
-                <div class="clear">&nbsp;</div>
-                <label id="lgnPwd" class="left" style="margin-right:4px;"></label>
-
-            </div>
-
-
-        </div>
-
-
-        <div id="ans" class="questionblock">
-
-            <span id="q" class="questionText">Mobile/Cell <span class="qmand"></span></span>
-            <div class="questionInput">
-                <input name="rptApp$ctl05$Ques$Q0008_ans" type="text" id="Q0008_ans" class="longQuestionTB">
-
-            </div>
-            <div class="emailacknowledge">
-
-            </div>
-            <div class="clear">&nbsp;</div>
-            <div id="rcgLgn" class="recognisedLogin hidden">
-                Already a candidate?
-                <div class="clear">&nbsp;</div>
-                <label id="lgnPwd" class="left" style="margin-right:4px;"></label>
-
-            </div>
-
-
-        </div>
-
-
-        <div id="ans" class="questionblock">
-
-            <span id="q" class="questionText">Availability/Notice <span class="qmand"></span></span>
-            <div class="questionInput">
-                <select name="rptApp$ctl06$Ques$Q0009_ans" id="Q0009_ans">
-		<option selected="selected" value=""></option>
-		<option value="Immediate">Immediate</option>
-		<option value="1 Week">1 Week</option>
-		<option value="2 Weeks">2 Weeks</option>
-		<option value="3 Weeks">3 Weeks</option>
-		<option value="1 Month">1 Month</option>
-		<option value="3 Months">3 Months</option>
-		<option value=">3 Months">&gt;3 Months</option>
-
-	</select>
-
-            </div>
-            <div class="emailacknowledge">
-
-            </div>
-            <div class="clear">&nbsp;</div>
-            <div id="rcgLgn" class="recognisedLogin hidden">
-                Already a candidate?
-                <div class="clear">&nbsp;</div>
-                <label id="lgnPwd" class="left" style="margin-right:4px;"></label>
-
-            </div>
-
-
-        </div>
-
-
-        <div id="ans" class="questionblock">
-
-            <span id="q" class="questionText">Hourly Rate GBP <span class="qmand"></span></span>
-            <div class="questionInput">
-                <select name="rptApp$ctl07$Ques$Q0015_ans" id="Q0015_ans">
-		<option selected="selected" value=""></option>
-		<option value="0 - £10 Per Hour">0 - £10 Per Hour</option>
-		<option value="£10 - £20 Per Hour">£10 - £20 Per Hour</option>
-		<option value="£20 - £30 Per Hour">£20 - £30 Per Hour</option>
-		<option value="£30 - £40 Per Hour">£30 - £40 Per Hour</option>
-		<option value="£40 - £50 Per Hour">£40 - £50 Per Hour</option>
-		<option value="£50 - £65 Per Hour">£50 - £65 Per Hour</option>
-		<option value="£65 - £80 Per Hour">£65 - £80 Per Hour</option>
-		<option value="£80 - £100 Per Hour">£80 - £100 Per Hour</option>
-		<option value=">£100">&gt;£100</option>
-
-	</select>
-
-            </div>
-            <div class="emailacknowledge">
-
-            </div>
-            <div class="clear">&nbsp;</div>
-            <div id="rcgLgn" class="recognisedLogin hidden">
-                Already a candidate?
-                <div class="clear">&nbsp;</div>
-                <label id="lgnPwd" class="left" style="margin-right:4px;"></label>
-
-            </div>
-
-
-        </div>
-
-
-        <div id="ans" class="questionblock">
-
-            <span id="q" class="questionText">Approximately how far are you willing to travel to work (in miles) ? <span class="qmand"></span></span>
-            <div class="questionInput">
-                <select name="rptApp$ctl08$Ques$Q0076_ans" id="Q0076_ans">
-		<option selected="selected" value=""></option>
-		<option value="Up to 5">Up to 5</option>
-		<option value="Up to 15">Up to 15</option>
-		<option value="Up to 30">Up to 30</option>
-		<option value="Up to 50">Up to 50</option>
-		<option value="50+">50+</option>
-
-	</select>
-
-            </div>
-            <div class="emailacknowledge">
-
-            </div>
-            <div class="clear">&nbsp;</div>
-            <div id="rcgLgn" class="recognisedLogin hidden">
-                Already a candidate?
-                <div class="clear">&nbsp;</div>
-                <label id="lgnPwd" class="left" style="margin-right:4px;"></label>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="clearfat">
-            &nbsp;
-        </div>
-    </div>
-
-    <div class="mdl-dialog__actions">
-        <button type="button" mdl-button (click)="login()" [disabled]="!form.valid" mdl-button-type="raised" mdl-colored="primary" mdl-ripple>Login</button>
-    </div>
-
-</form>
+        <div id="app2" class="AppOptContainer left ccUni">
+            <div id="ans" class="questionblock">
+                <span id="q" class="questionText">First Name</span>
+                <div class="questionInput">
+                    <input name="firstName" id="firstName" type=" text " class="longQuestionTB ">
+                </div>
+                <div id="ans " class="questionblock ">
+                    <span id="q " class="questionText ">Last Name</span>
+                    <div class="questionInput ">
+                        <input name="lastName " type="text " id="lastName " class="longQuestionTB ">
+                    </div>
+                    <div id="ans " class="questionblock2 ">
+                        <span id="q " class="questionText ">Address</span>
+                        <div class="questionInput ">
+                            <textarea name="address " rows="3 " cols="20 " id="address " class="longQuestionTB "></textarea>
+                        </div>
+
+                    </div>
+
+                    <div id="ans " class="questionblock ">
+                        <span id="q " class="questionText ">Availability/Notice</span>
+                        <div class="questionInput ">
+                            <select name="availability " id="availability ">
+                      <option selected="selected " value=" "></option>
+                      <option value="Immediate ">Immediate</option>
+                      <option value="1 Week ">1 Week</option>
+                      <option value="2 Weeks ">2 Weeks</option>
+                      <option value="3 Weeks ">3 Weeks</option>
+                      <option value="1 Month ">1 Month</option>
+                      <option value="3 Months ">3 Months</option>
+                      <option value=">3 Months">&gt;3 Months</option>
+                    </select>
+
+                        </div>
+
+                        <div id="ans" class="questionblock">
+                            <span id="q" class="questionText">Hourly Rate GBP <span class="qmand"></span>
+                            <div class="questionInput">
+                                <select name="rateRequired" id="rateRequired">
+                                  <option selected="selected" value=""></option>
+                                  <option value="0 - £10 Per Hour">0 - £10 Per Hour</option>
+                                  <option value="£10 - £20 Per Hour">£10 - £20 Per Hour</option>
+                                  <option value="£20 - £30 Per Hour">£20 - £30 Per Hour</option>
+                                  <option value="£30 - £40 Per Hour">£30 - £40 Per Hour</option>
+                                  <option value="£40 - £50 Per Hour">£40 - £50 Per Hour</option>
+                                  <option value="£50 - £65 Per Hour">£50 - £65 Per Hour</option>
+                                  <option value="£65 - £80 Per Hour">£65 - £80 Per Hour</option>
+                                  <option value="£80 - £100 Per Hour">£80 - £100 Per Hour</option>
+                                  <option value=">£100">&gt;£100</option>
+	                              </select>
+                            </div>
+                            <div id="ans" class="questionblock">
+                                <span id="q" class="questionText">Approximately how far are you willing to travel to work (in miles) ?</span>
+                                <div class="questionInput">
+                                    <select name="distanceAllowed" id="distanceAllowed">
+                          <option selected="selected" value=""></option>
+                          <option value="Up to 5">Up to 5</option>
+                          <option value="Up to 15">Up to 15</option>
+                          <option value="Up to 30">Up to 30</option>
+                          <option value="Up to 50">Up to 50</option>
+                          <option value="50+">50+</option>
+                </select>
+                                </div>
+
+                                <div class="mdl-dialog__actions">
+                                    <button type="submit" mdl-button [disabled]="!applyJobForm.valid" mdl-button-type="raised" mdl-colored="primary" mdl-ripple>Apply</button>
+                                </div>

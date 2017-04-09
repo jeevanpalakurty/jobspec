@@ -34,7 +34,7 @@ export class SearchResultsComponent implements OnInit {
         const applyDialog = this.dialogService.showCustomDialog({
             component: ApplyJobComponent,
             isModal: true,
-            styles: {'width': '650px', 'background': 'floralwhite'},
+            styles: {'width': '650px', 'background': 'floralwhite', 'margin-top': '100px', 'height': '925px', 'overflow': 'auto'},
             clickOutsideToClose: true,
             enterTransitionDuration: 400,
             leaveTransitionDuration: 400

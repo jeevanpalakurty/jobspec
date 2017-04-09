@@ -19,7 +19,7 @@ export class EmployerPostJobComponent implements OnInit {
   @HostBinding('style.display')   display = 'block';
   @HostBinding('style.position')  position = 'absolute';
 
- private job: FormGroup;
+ job: FormGroup;
  skills: any = [];
  trainingCourses = [
        {id: 1, name: "Java"},
